@@ -1,0 +1,15 @@
+<!—include “header.html” - - >
+ <body>
+    <a href="/app/">发布留言</a><br><br>
+    <?php
+        if ($data['arr']){ // 是否有数据
+            foreach ($data['arr'] as $v){
+                // 显示每一行
+                echo '<li>'.$v['username'].' 说：'.$v['message'].'</li>';
+            }
+        }
+    ?>
+    <br><br>
+    <?php echo $data['page']->output;?>
+ </body>
+</html>

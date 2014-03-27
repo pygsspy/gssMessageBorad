@@ -7,19 +7,27 @@
   <meta name="author" content="" />
   <meta name="keywords" content="" />
   <meta name="description" content="" />
-  <?php echo $data['page']->defaultCss;?>
+  <link rel="stylesheet" type="text/css" href="/app/global/css/bootstrap.min.css" media="screen" />
+  <link href="/app/global/css/signin.css" rel="stylesheet">
+<?php echo $data['page']->defaultCss;?>
  </head>
  <body>
-    <a href="/app/">发布留言</a><br><br>
-    <?php
-        if ($data['arr']){ // 是否有数据
-            foreach ($data['arr'] as $v){
+    <a class="btn btn-lg btn-primary" href="/app/" role="button">发布留言&raquo;</a><br><br>
+    
+    <table class="table table-bordered">
+      <?php
+          if ($data['arr']){ // 是否有数据
+              foreach ($data['arr'] as $v){
                 // 显示每一行
-                echo '<li>'.$v['username'].' 说：'.$v['message'].'</li>';
-            }
-        }
-    ?>
+                echo "<tr>";
+                echo '<td>'.$v['username'].' 说：</td><td>'.$v['message'].'</td>';
+                echo "</tr>";
+              }
+          }
+      ?>
+    </table>
     <br><br>
+    
     <?php echo $data['page']->output;?>
  </body>
 </html>

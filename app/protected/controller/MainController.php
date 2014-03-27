@@ -7,6 +7,14 @@
  */
 class MainController extends DooController{
 
+
+	/*	public function beforeRun($resource, $action){
+     echo $resource;echo "<br>";
+     echo $action;
+     exit;  
+	}*/
+
+
     public function index(){
         //echo 'hello world';
         #$this->render('calculator');
@@ -14,8 +22,8 @@ class MainController extends DooController{
 
     }
 
-    /**
-	public function post(){
+    
+/*	public function post(){
 	    $a = $_POST['a'];
 	    $b = $_POST['b'];
 	    $i = $_POST['in'];
@@ -50,8 +58,8 @@ class MainController extends DooController{
 	    $arr = file($txt);//file函数可以查看下手册，意思是一行行的读取
 	    $data['arr'] = $arr; // 这里是把arr传值进模板
 	    $this->renderc('list', $data);// 这里是直接读取 viewc 里的php模板
-	}
-	*/
+	}*/
+	
 
 
 	public function post(){
@@ -70,8 +78,8 @@ class MainController extends DooController{
 	    exit;
 	}
 
-	/**
-	public function lists(){
+	
+/*  public function lists(){
 	    Doo::loadModel('Guestbook');
 	    $gb = new Guestbook();
 	    $data['arr'] = $gb->find(array('asArray'=>true));
@@ -85,12 +93,12 @@ class MainController extends DooController{
 	    Doo::loadModel('Guestbook');
 	    $gb = new Guestbook();
 	    $total = $gb->count();
-	    $pager = new DooPager(Doo::conf()->APP_URL.'page', $total, 3, 6);
+	    $pager = new DooPager(Doo::conf()->APP_URL.'page', $total, 4, 6);
 	    if(isset($this->params['p'])){
 	        $pager->paginate(intval($this->params['p']));
 	    }else{
 	        $pager->paginate(1);
-	    }
+	    }	    
 	    $data['arr'] = $gb->limit($pager->limit, '', 'id', array('asArray'=>true));
 	    $data['page'] = $pager;
 	    $this->renderc('page', $data);// 这里是直接读取 viewc 里的php模板
