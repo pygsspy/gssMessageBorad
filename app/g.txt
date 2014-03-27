@@ -1,0 +1,2 @@
+gss	hello 汽车达人
+汽车达人	hello gss
